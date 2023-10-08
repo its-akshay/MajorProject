@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Crop Recommender by Noor Saeed</title>
     <meta charset="utf-8">
@@ -8,154 +9,213 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- custom js file link  -->
+    <script src="js/script.js" defer></script>
+
+
+
     <style>
-		h1 {
-			color: mediumseagreen;
-			text-align: left;
-		}
+        h1 {
+            color: mediumseagreen;
+            text-align: left;
+        }
 
-		.warning {
-			color: red;
-			font-weight: bold;
-			text-align: center;
-		}
-		.card{
-		margin-left:410px;
-		margin-top: 20px;
-		color: white;
-		}
-		.container{
-		font-weight: bold;
-		padding-bottom:10px;
-		border-radius: 15px;
-		}
+        .warning {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
 
+        .card {
+            margin-left: 410px;
+            margin-top: 20px;
+            color: white;
+        }
 
-
-
-
-
-
-
+        .container {
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-radius: 15px;
+        }
     </style>
 </head>
+
 <body style="background:#BCBBB8">
-<!--=======================navbar=====================================================-->
+    <!--=======================navbar=====================================================-->
 
 
 
-<!--===============================================================================-->
-<div class="container my-5 mt-5 bg-light">
-    <h1>Crop Recommendation <span class="text-success">🌱</span></h1>
+    <!--===============================================================================-->
+    <div class="container my-5 mt-5 bg-light">
+        <h1>Crop Recommendation <span class="text-success">🌱</span></h1>
 
-    <form action="{{ url_for('predict') }}" class="mt-5" method="POST">
-        <div class="row">
-            <div class="col-md-4">
-                <label for="Nitrogen">Nitrogen</label>
-                <input class="form-control" id="Nitrogen" name="Nitrogen" placeholder="Enter Nitrogen" required
-                       type="number">
+        <form action="{{ url_for('predict') }}" class="mt-5" method="POST">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="Nitrogen">Nitrogen</label>
+                    <input class="form-control" id="Nitrogen" name="Nitrogen" placeholder="Enter Nitrogen" required
+                        type="number">
+                </div>
+                <div class="col-md-4">
+                    <label for="Phosporus">Phosphorus</label>
+                    <input class="form-control" id="Phosporus" name="Phosporus" placeholder="Enter Phosphorus" required
+                        type="number">
+                </div>
+                <div class="col-md-4">
+                    <label for="Potassium">Potassium</label>
+                    <input class="form-control" id="Potassium" name="Potassium" placeholder="Enter Potassium" required
+                        type="number">
+                </div>
             </div>
-            <div class="col-md-4">
-                <label for="Phosporus">Phosphorus</label>
-                <input class="form-control" id="Phosporus" name="Phosporus" placeholder="Enter Phosphorus" required
-                       type="number">
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <label for="Temperature">Temperature</label>
+                    <input class="form-control" id="Temperature" name="Temperature"
+                        placeholder="Enter Temperature in °C" required step="0.01" type="number">
+                </div>
+                <div class="col-md-4">
+                    <label for="Humidity">Humidity</label>
+                    <input class="form-control" id="Humidity" name="Humidity" placeholder="Enter Humidity in %" required
+                        step="0.01" type="number">
+                </div>
+                <div class="col-md-4">
+                    <label for="pH">pH</label>
+                    <input class="form-control" id="pH" name="pH" placeholder="Enter pH value" required step="0.01"
+                        type="number">
+                </div>
             </div>
-            <div class="col-md-4">
-                <label for="Potassium">Potassium</label>
-                <input class="form-control" id="Potassium" name="Potassium" placeholder="Enter Potassium" required
-                       type="number">
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <label for="Rainfall">Rainfall</label>
+                    <input class="form-control" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall in mm"
+                        required step="0.01" type="number">
+                </div>
             </div>
+
+            <div class="row mt-4">
+
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-primary btn-lg" type="submit">Get Recommendation</button>
+
+                </div>
+            </div>
+        </form>
+
+
+
+        <div class="fert">
+            <button class="btn btn-primary btn-lg" type="button"
+                onclick="redirectToFertilizerRecommendation()">Fertilizer</button>
         </div>
 
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <label for="Temperature">Temperature</label>
-                <input class="form-control" id="Temperature" name="Temperature" placeholder="Enter Temperature in °C"
-                       required step="0.01" type="number">
+        <script>
+            function redirectToFertilizerRecommendation() {
+                window.location.href = "{{ url_for('fertilizer_recommendation') }}";
+            }
+        </script>
+
+
+        {% if prediction %}
+        <div class="card bg-dark" style="width: 18rem;">
+            <!--        <img alt="..." class="card-img-top" src="{{url_for('static', filename='Rice.jpeg')}}">-->
+            {% set image_map = {
+            "Rice": "Rice.jpeg",
+            "Muskmelon": "Muskmelon.jpg",
+            "Apple": "Apple.jpg",
+            "Coconut": "Coconut.jpg",
+            "Cotton": "Cotton.jpg",
+            "Grapes": "Grapes.jpg",
+            "Jute": "Jute.jpg",
+            "Maize": "Maize.jpeg",
+            "Mango": "Mango.jpg",
+            "Papaya": "Papaya.jpg",
+            "Watermelon": "Watermelon.jpg",
+            "Orange": "Orange.jpg",
+            "Banana": "Banana.jpg",
+            "Pomegranate": "Pomegranate.jpg",
+            "Lentil": "Lentil.jpg",
+            "Blackgram": "Blackgram.jpg",
+            "Mungbean": "Mungbean.jpg",
+            "Mothbeans": "Mothbeans.jpg",
+            "Pigeonpeas": "Pigeonpeas.jpg",
+            "Kidneybeans": "Kidneybeans.jpg",
+            "Chickpea": "Chickpea.jpg",
+            "Coffee": "Coffee.jpg",
+
+
+            } %}
+            {% set image_filename = image_map.get(prediction, "Apple.jpg") %}
+            <img alt="{{ prediction }}" class="card-img-top" src="{{url_for('static', filename=image_filename)}}">
+            <div class="card-body">
+                <div class="products-preview">
+                    <h5 class="card-title">Recommend Crop</h5>
+                    <p class="card-text">{{prediction }}</p>
+
+                </div>
+
             </div>
-            <div class="col-md-4">
-                <label for="Humidity">Humidity</label>
-                <input class="form-control" id="Humidity" name="Humidity" placeholder="Enter Humidity in %" required
-                       step="0.01" type="number">
+            <!-- container -->
+            <!-- <div class="container">
+
+            <h3 class="title"> organic products </h3>
+         
+            <div class="products-container">
+         
+               <div class="product" data-name="p-1">
+                  <img src="images/1.png" alt="">
+                  <h3>strawberries</h3>
+                  <div class="price">$2.00</div>
+               </div>
+         
+               <div class="product" data-name="p-2">
+                  <img src="images/2.png" alt="">
+                  <h3>onions</h3>
+                  <div class="price">$2.00</div>
+               </div>
+         
+               <div class="product" data-name="p-3">
+                  <img src="images/3.png" alt="">
+                  <h3>tomatoes</h3>
+                  <div class="price">$2.00</div>
+               </div>
+         
+               <div class="product" data-name="p-4">
+                  <img src="images/4.png" alt="">
+                  <h3>brinjal</h3>
+                  <div class="price">$2.00</div>
+               </div>
+         
+               <div class="product" data-name="p-5">
+                  <img src="images/5.png" alt="">
+                  <h3>broccoli</h3>
+                  <div class="price">$2.00</div>
+               </div>
+         
+               <div class="product" data-name="p-6">
+                  <img src="images/6.png" alt="">
+                  <h3>potatoes</h3>
+                  <div class="price">$2.00</div>
+               </div>
+         
             </div>
-            <div class="col-md-4">
-                <label for="pH">pH</label>
-                <input class="form-control" id="pH" name="pH" placeholder="Enter pH value" required step="0.01"
-                       type="number">
-            </div>
+         
+         </div> -->
+
+
+            <!-- </div> -->
+
+            {% endif %}
         </div>
-
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <label for="Rainfall">Rainfall</label>
-                <input class="form-control" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall in mm" required
-                       step="0.01" type="number">
-            </div>
-        </div>
-
-        <div class="row mt-4">
-
-            <div class="col-md-12 text-center">
-                <button class="btn btn-primary btn-lg" type="submit">Get Recommendation</button>
-                
-            </div>
-        </div>
-    </form>
-
-
-
-    <div class="fert">
-        <button class="btn btn-primary btn-lg" type="button" onclick="redirectToFertilizerRecommendation()">Fertilizer</button>
-    </div>
-    
-    <script>
-        function redirectToFertilizerRecommendation() {
-            window.location.href = "{{ url_for('fertilizer_recommendation') }}";
-        }
-    </script>
-
-
-    {% if prediction %}
-    <div class="card bg-dark" style="width: 18rem;">
-        <!--        <img alt="..." class="card-img-top" src="{{url_for('static', filename='Rice.jpeg')}}">-->
-        {% set image_map = {
-        "Rice": "Rice.jpeg",
-        "Muskmelon": "Muskmelon.jpg",
-        "Apple": "Apple.jpg",
-        "Coconut": "Coconut.jpg",
-        "Cotton": "Cotton.jpg",
-        "Grapes": "Grapes.jpg",
-        "Jute": "Jute.jpg",
-        "Maize": "Maize.jpeg",
-        "Mango": "Mango.jpg",
-        "Papaya": "Papaya.jpg",
-        "Watermelon": "Watermelon.jpg",
-        "Orange": "Orange.jpg",
-        "Banana": "Banana.jpg",
-        "Pomegranate": "Pomegranate.jpg",
-        "Lentil": "Lentil.jpg",
-        "Blackgram": "Blackgram.jpg",
-        "Mungbean": "Mungbean.jpg",
-        "Mothbeans": "Mothbeans.jpg",
-        "Pigeonpeas": "Pigeonpeas.jpg",
-        "Kidneybeans": "Kidneybeans.jpg",
-        "Chickpea": "Chickpea.jpg",
-        "Coffee": "Coffee.jpg",
-
-
-        } %}
-        {% set image_filename = image_map.get(prediction, "Apple.jpg") %}
-        <img alt="{{ prediction }}" class="card-img-top" src="{{url_for('static', filename=image_filename)}}">
-        <div class="card-body">
-            <h5 class="card-title">Recommend Crop</h5>
-            <p class="card-text">{{prediction }}</p>
-
-        </div>
-
-
-    </div>
-
-    {% endif %}
-</div>
 </body>
+
 </html>

@@ -10,7 +10,7 @@ from utils.fertilizer import fertilizer_dic
 
 app = Flask(__name__)
 
-loaded_model = pickle.load(open("model.pkl", 'rb'))
+loaded_model = pickle.load(open("models/model.pkl", 'rb'))
 
 
 @app.route('/')
