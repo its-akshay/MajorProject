@@ -1,171 +1,157 @@
 {% extends 'layout.html' %} {% block body %}
 
 <head>
-    <title>Major Project</title>
-    <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/OIP.StKIboJQap5_xtmIFlWLlAHaEo?pid=ImgDet&rs=1">
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>Major Project</title>
+  <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/OIP.StKIboJQap5_xtmIFlWLlAHaEo?pid=ImgDet&rs=1">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css">
 
-    <!-- custom js file link  -->
-    <script src="js/script.js" defer></script>
+  <!-- custom js file link  -->
+  <script src="js/script.js" defer></script>
 
 
 
-    <style>
-        h1 {
-            color: black;
-            text-align: left;
-        }
+  <style>
+    h1 {
+      color: black;
+      text-align: left;
+    }
 
-        .warning {
-            color: red;
-            font-weight: bold;
-            text-align: center;
-        }
+    .warning {
+      color: red;
+      font-weight: bold;
+      text-align: center;
+    }
 
-        .card {
-            margin-left: 500px;
-            margin-top: 20px;
-            color: white;
-        }
+    .card {
+      margin-left: 500px;
+      margin-top: 20px;
+      color: white;
+    }
 
-        .container {
-            font-weight: bold;
-            padding-bottom: 80px;
-            padding-left:10px;
-            border-radius: 30px;
-        }
-    </style>
+    .container {
+      font-weight: bold;
+      padding-bottom: 20px;
+      padding-left: 10px;
+      border-radius: 10px;
+      position: static;
+    }
+
+    form {
+
+      height: 820px;
+      width: 630px;
+      background-color: rgba(255, 255, 255, 0.0.7);
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 70%;
+      left: 50%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    }
+
+    body {
+      background-image: url("/static/peakpx.jpg");
+      background-size: cover;
+    }
+
+    .form-group {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 50px;
+      padding-right: 50px;
+      margin-top: 10px;
+    }
+
+  </style>
 </head>
 
-<div
-  style="
-    width: 750px;
-    height: 40rem;
-    margin: 0px auto;
-    color: black;
-    border-radius: 25px;
-    padding: 10px 10px;
-  "
->
-  <div class="container my-5 mt-5 "
-       style="
-background-color: #515151;
-    color: black;">
-        <h1 style="
-    color: black;">Fertilizer Recommendation</h1>
-  <form method="POST" action="{{ url_for('fert_recommend') }}" class="mt-5">
-    <div class="form-group">
-      <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
-      <input
-        type="number"
-        class="form-control"
-        id="Nitrogen"
-        name="nitrogen"
-        style="font-weight: bold"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="Phosphorous" style="font-size: 17px"
-        ><b>Phosphorous</b></label
-      >
-      <input
-        type="number"
-        class="form-control"
-        id="Phosphorous"
-        name="phosphorous"
-        style="font-weight: bold"
-        required
-      />
-    </div>
+<div>
+  <div class="container my-5 mt-5 " style="background-color: #515151;color: black;">
+    <h1 style="color: black;justify-content: center;align-items: center;">Fertilizer Recommendation</h1>
+  </div>
 
-    <div class="form-group">
-      <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
-      <input
-        type="number"
-        class="form-control"
-        id="Pottasium"
-        name="pottasium"
-        style="font-weight: bold"
-        required
-      />
-    </div>
-    <div class="form-group">
-      <label for="crop" style="font-size: 17px"
-        ><b>Crop you want to grow</b></label
-      >
-      <select
-        name="cropname"
-        class="form-control"
-        id="crop"
-        style="font-weight: bold"
-        required
-      >
-        <option selected>Select crop</option>
-        <option>rice</option>
-        <option>maize</option>
-        <option>chickpea</option>
-        <option>kidneybeans</option>
-        <option>pigeonpeas</option>
-        <option>mothbeans</option>
-        <option>mungbean</option>
-        <option>blackgram</option>
-        <option>lentil</option>
-        <option>pomegranate</option>
-        <option>banana</option>
-        <option>mango</option>
-        <option>grapes</option>
-        <option>watermelon</option>
-        <option>muskmelon</option>
-        <option>apple</option>
-        <option>orange</option>
-        <option>papaya</option>
-        <option>coconut</option>
-        <option>cotton</option>
-        <option>jute</option>
-        <option>coffee</option>
-      </select>
-    </div>
+  <script>
+    function redirectTohome() {
+      window.location.href = "{{ url_for('home') }}";
+    }
+  </script>
+</div>
 
-    <div class="d-flex justify-content-center">
-      <button
-        type="submit"
-        class="btn btn-info"
-        style="
-          color: white;
-          background-color: black;
-          font-weight: bold;
-          width: 130px;
-          height: 50px;
-          border-radius: 12px;
-          font-size: 21px;
-        "
-      >
-        Predict
-      </button>
+
+<form method="POST" action="{{ url_for('fert_recommend') }}" class="mt-5">
+  <div class="form-group">
+    <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
+    <input type="number" class="form-control" id="Nitrogen" name="nitrogen" style="font-weight: bold" required />
+  </div>
+  <div class="form-group">
+    <label for="Phosphorous" style="font-size: 17px"><b>Phosphorous</b></label>
+    <input type="number" class="form-control" id="Phosphorous" name="phosphorous" style="font-weight: bold" required />
+  </div>
+
+  <div class="form-group">
+    <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
+    <input type="number" class="form-control" id="Pottasium" name="pottasium" style="font-weight: bold" required />
+  </div>
+  <div class="form-group">
+    <label for="crop" style="font-size: 17px"><b>Crop you want to grow</b></label>
+    <select name="cropname" class="form-control" id="crop" style="font-weight: bold" required>
+      <option selected>Select crop</option>
+      <option>rice</option>
+      <option>maize</option>
+      <option>chickpea</option>
+      <option>kidneybeans</option>
+      <option>pigeonpeas</option>
+      <option>mothbeans</option>
+      <option>mungbean</option>
+      <option>blackgram</option>
+      <option>lentil</option>
+      <option>pomegranate</option>
+      <option>banana</option>
+      <option>mango</option>
+      <option>grapes</option>
+      <option>watermelon</option>
+      <option>muskmelon</option>
+      <option>apple</option>
+      <option>orange</option>
+      <option>papaya</option>
+      <option>coconut</option>
+      <option>cotton</option>
+      <option>jute</option>
+      <option>coffee</option>
+    </select>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div class="col-md-12 text-center">
+      <button class="btn btn-primary btn-lg" type="submit" style="background-color: black;">Predict</button>
     </div>
-  </form>
-    <div class="fert">
-            <button class="btn btn-primary btn-lg" type="button" style="background-color: black; margin:30px;"
-                onclick="redirectTohome()">Crop Recommendation</button>
-        </div>
-</div>
-     <script>
-            function redirectTohome() {
-                window.location.href = "{{ url_for('home') }}";
-            }
-        </script>
-</div>
+  </div>
+
+
+  <br>
+  <br>
+  <div class="d-flex justify-content-center">
+    <div class="col-md-12 text-center">
+      <button class="btn btn-primary btn-lg" type="submit" style="background-color: black;"
+        onclick="redirectTohome()">Crop Recommendation</button>
+    </div>
+  </div>
+
+
+</form>
 {% endblock %}
