@@ -1,195 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <title>Major Project</title>
     <link rel="icon" type="image/x-icon"
         href="https://th.bing.com/th/id/OIP.StKIboJQap5_xtmIFlWLlAHaEo?pid=ImgDet&rs=1">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-
-
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- font awesome cdn link  -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
     <!-- custom js file link  -->
     <script src="js/script.js" defer></script>
-
-
-
-    <style>
-        h1 {
-            color: rgb(0, 0, 0);
-            text-align: center;
-        }
-
-        .warning {
-            color: red;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .card {
-            margin-left: 410px;
-            margin-top: 20px;
-            color: white;
-        }
-
-        .container {
-            font-weight: bold;
-            padding-bottom: 10px;
-            border-radius: 15px;
-           
-
-        }
-
-        .row {
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 2px;
-            padding: 2px;
-
-            /* flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-left: 5px;
-            padding-right: 5px;
-            margin-top: 10px; */
-        }
-
-        form {
-            height: 820px;
-            width: 630px;
-            background-color: rgba(255, 255, 255, 0.0.7);
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 70%;
-            left: 50%;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-        }
-
-        .fert {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100px;
-
-        }
-
-        body {
-            background-image: url("/static/peakpx.jpg");
-            background-size: cover;
-            margin-left: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-         
-        }
-
-        label {
-            display: flex;
-            justify-content: left;
-            font-weight: 600;
-            color: #fff;
-            text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-        }
-        .form-control{
-           margin: 5px;
-           margin-right: 10px;
-        }
-        .mt-5{
-            padding: 35px;
-            padding-top: 0;
-        }
-        .heading{
-            border-radius: 5px;
-            width: 630px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-            margin-right: 50px;
-      
-        }
-       
-        
-    </style>
 </head>
 
-<body style="background-color: white;color: #262626;position:static">
-    <div class="heading" style="background-color: #b0a8a8; color: black;">
-        <h1>Crop Recommendation </h1>
-    </div>
-
-    <form action="{{ url_for('predict') }}" class="mt-5" method="POST">
-        <br>
-        <div class="row">
-            
-                <label for="Nitrogen">Nitrogen</label>
-                <input class="form-control" id="Nitrogen" name="Nitrogen" placeholder="Enter Nitrogen" required
-                    type="number">
-          
-            
-                <label for="Temperature">Temperature</label>
-                <input class="form-control" id="Temperature" name="Temperature" placeholder="Enter Temperature in °C"
-                    required step="0.01" type="number">
-            
-            
-                <label for="Rainfall">Rainfall</label>
-                <input class="form-control" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall in mm" required
-                    step="0.01" type="number">
-            
-            
-                <label for="Phosporus">Phosphorus</label>
-                <input class="form-control" id="Phosporus" name="Phosporus" placeholder="Enter Phosphorus" required
-                    type="number">
-            
-            
-                <label for="Humidity">Humidity</label>
-                <input class="form-control" id="Humidity" name="Humidity" placeholder="Enter Humidity in %" required
-                    step="0.01" type="number">
-            
-            
-                <label for="pH">pH</label>
-                <input class="form-control" id="pH" name="pH" placeholder="Enter pH value" required step="0.01"
-                    type="number">
-            
-            
-                <label for="Potassium">Potassium</label>
-                <input class="form-control" id="Potassium" name="Potassium" placeholder="Enter Potassium" required
-                    type="number">
-            
-        </div>
-
-        <div class="row mt-4">
-
-            <div class="col-md-12 text-center">
-                <button class="btn btn-primary btn-lg" type="submit" style="background-color: black;">Get
-                    Recommendation</button>
-
-            </div>
-            <div class="fert">
-                <button class="btn btn-primary btn-lg" type="button" style="background-color: black;"
-                    onclick="redirectToFertilizerRecommendation()">Fertilizer</button>
-            </div>
-        </div>
-    </form>
-
-
-
-
-
-
+<body>
 
     {% if prediction %}
     <div style="display: flex;justify-content: center ;">
@@ -482,16 +317,6 @@
 
 
     {% endif %}
-
-
-    <script>
-        function redirectToFertilizerRecommendation() {
-            window.location.href = "{{ url_for('fertilizer_recommendation') }}";
-        }
-    </script>
-
-
-
 </body>
 
 </html>

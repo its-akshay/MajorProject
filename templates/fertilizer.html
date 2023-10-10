@@ -77,11 +77,29 @@
       margin-top: 10px;
     }
 
+    label {
+      display: flex;
+      justify-content: left;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    }
+
+    .heading {
+      border-radius: 5px;
+      width: 630px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      margin-right: 50px;
+      margin-left: 375px;
+    }
   </style>
 </head>
 
 <div>
-  <div class="container my-5 mt-5 " style="background-color: #515151;color: black;">
+  <div class="heading " style="background-color: #515151;color: black;">
     <h1 style="color: black;justify-content: center;align-items: center;">Fertilizer Recommendation</h1>
   </div>
 
@@ -96,20 +114,20 @@
 <form method="POST" action="{{ url_for('fert_recommend') }}" class="mt-5">
   <div class="form-group">
     <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
-    <input type="number" class="form-control" id="Nitrogen" name="nitrogen" style="font-weight: bold" required />
+    <input type="number" class="form-control" id="Nitrogen" name="nitrogen" style="font-weight: bold" placeholder="Enter Nitrogen Value" required />
   </div>
   <div class="form-group">
     <label for="Phosphorous" style="font-size: 17px"><b>Phosphorous</b></label>
-    <input type="number" class="form-control" id="Phosphorous" name="phosphorous" style="font-weight: bold" required />
+    <input type="number" class="form-control" id="Phosphorous" name="phosphorous" style="font-weight: bold" placeholder="Enter Phosphorous Value" required />
   </div>
 
   <div class="form-group">
     <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
-    <input type="number" class="form-control" id="Pottasium" name="pottasium" style="font-weight: bold" required />
+    <input type="number" class="form-control" id="Pottasium" name="pottasium" style="font-weight: bold"  placeholder="Enter Pottasium Value" required />
   </div>
   <div class="form-group">
     <label for="crop" style="font-size: 17px"><b>Crop you want to grow</b></label>
-    <select name="cropname" class="form-control" id="crop" style="font-weight: bold" required>
+    <select name="cropname" class="form-control" id="crop" style="font-weight: bold"  required>
       <option selected>Select crop</option>
       <option>rice</option>
       <option>maize</option>
