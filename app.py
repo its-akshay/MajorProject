@@ -97,7 +97,7 @@ def predict():
     else:
         result = "Sorry, we could not determine the best crop to be cultivated with the provided data."
 
-    return render_template('home.html', prediction=result)
+    return render_template('predict.html', prediction=result)
 
 
 if __name__ == '__main__':
