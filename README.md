@@ -15,21 +15,6 @@
 # Project Coordinator:
 #### - **Prof.Bharti Bhattad**
 
-
-# Project Title
-
-Crop Recommendation System
-
-## 🔗 Links
-
-
-[![YouTube](https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/gE0hYQYKClg)
-
-## Research Paper
-Research Paper:[Research Paper](https://ijsrem.com/download/crop-recommendation-system-2/)
-
-DOI: 10.55041/IJSREM26385
-
 ## Tech Stack
 
 **Client:** Python, Colab(for testing and data-preprocessing)
@@ -38,7 +23,9 @@ DOI: 10.55041/IJSREM26385
 
 **Deployment:** Render
 
-## Important Links:
+
+## 🔗 Links
+
 
 Technical Poster
 [Link](https://drive.google.com/file/d/1MyPM8ytml_wTsUknq1_BzMiKAb4E3aLn/view?usp=sharing)
@@ -49,9 +36,7 @@ PPT: [Link](https://drive.google.com/file/d/11XW76bleYvU6EUuLBDcWkFdhT_doXqua/vi
 
 Report: [Link](https://drive.google.com/file/d/1bPxKHW3QOPN-GClhc1LvL3JpCRdVKTD_/view?usp=sharing)
 
+Published Paper: [Link](https://ijsrem.com/download/crop-recommendation-system-2/)
+DOI: 10.55041/IJSREM26385
 
-
-
-
-
-
+Video Link: [YouTube](https://youtu.be/gE0hYQYKClg)
