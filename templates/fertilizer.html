@@ -2,30 +2,37 @@
 
 <head>
   <title>Major Project</title>
-  <link rel="icon" type="image/x-icon" href="https://th.bing.com/th/id/OIP.StKIboJQap5_xtmIFlWLlAHaEo?pid=ImgDet&rs=1">
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="https://th.bing.com/th/id/OIP.StKIboJQap5_xtmIFlWLlAHaEo?pid=ImgDet&rs=1"
+  />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
   <!-- font awesome cdn link  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
 
   <!-- custom css file link  -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 
   <!-- custom js file link  -->
   <script src="js/script.js" defer></script>
 
-
-
   <style>
     h1 {
       color: black;
-      text-align: left;
+      text-align: center; /* Center the heading text */
     }
 
     .warning {
@@ -35,28 +42,19 @@
     }
 
     .card {
-      margin-left: 500px;
-      margin-top: 20px;
+      margin: 20px auto; /* Center the card horizontally */
       color: white;
     }
 
     .container {
       font-weight: bold;
-      padding-bottom: 20px;
-      padding-left: 10px;
+      padding: 20px;
       border-radius: 10px;
-      position: static;
     }
 
     form {
-
-      height: 820px;
-      width: 630px;
-      background-color: rgba(255, 255, 255, 0.0.7);
-      position: absolute;
-      transform: translate(-50%, -50%);
-      top: 70%;
-      left: 50%;
+      max-width: 100%; /* Ensure the form doesn't overflow its container */
+      background-color: rgba(255, 255, 255, 0.7);
       border-radius: 10px;
       backdrop-filter: blur(10px);
       border: 2px solid rgba(255, 255, 255, 0.1);
@@ -66,41 +64,34 @@
     body {
       background-image: url("/static/peakpx.jpg");
       background-size: cover;
+      margin: 0; /* Remove default body margin */
     }
 
     .form-group {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-left: 50px;
-      padding-right: 50px;
-      margin-top: 10px;
+      padding: 10px; /* Add some spacing around form elements */
     }
 
     label {
-      display: flex;
-      justify-content: left;
       font-weight: 600;
       color: #fff;
       text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     }
 
     .heading {
+      background-color: #9e8c8c;
+      color: black;
+      text-align: center; /* Center the heading text */
       border-radius: 5px;
-      width: 630px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 10px;
-      margin-right: 50px;
-      margin-left: 375px;
+      padding: 10px;
     }
   </style>
 </head>
 
 <div>
-  <div class="heading " style="background-color: #9e8c8c;color: black;">
-    <h1 style="color: black;justify-content: center;align-items: center;">Fertilizer Recommendation</h1>
+  <div class="heading" style="background-color: #9e8c8c; color: black">
+    <h1 style="color: black; justify-content: center; align-items: center">
+      Fertilizer Recommendation
+    </h1>
   </div>
 
   <script>
@@ -110,24 +101,55 @@
   </script>
 </div>
 
-
 <form method="POST" action="{{ url_for('fert_recommend') }}" class="mt-5">
   <div class="form-group">
     <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
-    <input type="number" class="form-control" id="Nitrogen" name="nitrogen" style="font-weight: bold" placeholder="Enter Nitrogen Value" required />
+    <input
+      type="number"
+      class="form-control"
+      id="Nitrogen"
+      name="nitrogen"
+      style="font-weight: bold"
+      placeholder="Enter Nitrogen Value"
+      required
+    />
   </div>
   <div class="form-group">
     <label for="Phosphorous" style="font-size: 17px"><b>Phosphorous</b></label>
-    <input type="number" class="form-control" id="Phosphorous" name="phosphorous" style="font-weight: bold" placeholder="Enter Phosphorous Value" required />
+    <input
+      type="number"
+      class="form-control"
+      id="Phosphorous"
+      name="phosphorous"
+      style="font-weight: bold"
+      placeholder="Enter Phosphorous Value"
+      required
+    />
   </div>
 
   <div class="form-group">
     <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
-    <input type="number" class="form-control" id="Pottasium" name="pottasium" style="font-weight: bold"  placeholder="Enter Pottasium Value" required />
+    <input
+      type="number"
+      class="form-control"
+      id="Pottasium"
+      name="pottasium"
+      style="font-weight: bold"
+      placeholder="Enter Pottasium Value"
+      required
+    />
   </div>
   <div class="form-group">
-    <label for="crop" style="font-size: 17px"><b>Crop you want to grow</b></label>
-    <select name="cropname" class="form-control" id="crop" style="font-weight: bold"  required>
+    <label for="crop" style="font-size: 17px"
+      ><b>Crop you want to grow</b></label
+    >
+    <select
+      name="cropname"
+      class="form-control"
+      id="crop"
+      style="font-weight: bold"
+      required
+    >
       <option selected>Select crop</option>
       <option>rice</option>
       <option>maize</option>
@@ -156,20 +178,29 @@
 
   <div class="d-flex justify-content-center">
     <div class="col-md-12 text-center">
-      <button class="btn btn-primary btn-lg" type="submit" style="background-color: black;">Predict</button>
+      <button
+        class="btn btn-primary btn-lg"
+        type="submit"
+        style="background-color: black"
+      >
+        Predict
+      </button>
     </div>
   </div>
 
-
-  <br>
-  <br>
+  <br />
+  <br />
   <div class="d-flex justify-content-center">
     <div class="col-md-12 text-center">
-      <button class="btn btn-primary btn-lg" type="submit" style="background-color: black;"
-        onclick="redirectTohome()">Crop Recommendation</button>
+      <button
+        class="btn btn-primary btn-lg"
+        type="submit"
+        style="background-color: black"
+        onclick="redirectTohome()"
+      >
+        Crop Recommendation
+      </button>
     </div>
   </div>
-
-
 </form>
 {% endblock %}
