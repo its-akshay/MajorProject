@@ -77,7 +77,8 @@
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-            margin-top: 200px;
+            margin-top: 100px;
+            size: 100%;
 
         }
 
@@ -97,8 +98,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-           position: absolute;
-           z-index: 1;
+            position: absolute;
+            z-index: 1;
 
         }
 
@@ -133,7 +134,7 @@
 
         } */
 
-        .heading{
+        .heading {
             border-radius: 5px;
             width: 630px;
             display: flex;
@@ -141,7 +142,8 @@
             align-items: center;
             margin-top: 10px;
             margin-right: 50px;
-      
+           
+
         }
 
         .card-body {
@@ -149,290 +151,313 @@
             justify-content: center;
             align-items: center;
         }
-        .card-body-content{
+
+        .card-body-content {
             margin-top: 10px;
-            position: static;
+            /* position: static; */
         }
-        .card-img-top{
+
+        .card-img-top {
             width: 420px;
             height: 400px;
         }
 
+        .cntt {
+            display: flex;
+            flex-wrap: nowrap;
+        }
     </style>
 </head>
 
 <body style="background-color: white;color: #262626;position:static">
-    <div class="heading" style="background-color: #b0a8a8; color: black;">
-        <h1>Crop Recommendation </h1>
-    
-    <form action="{{ url_for('predict') }}" class="mt-5" method="POST">
 
-        <div class="row">
+    <div class="cntt">
 
-            {% if prediction %}
-            <div style="display: flex;justify-content: center ;">
-                <div class="card bg-dark" style="
+        <div class="heading" style="background-color: #b0a8a8; color: black;">
+            <h1>Crop Recommendation </h1>
+        </div>
+        <form action="{{ url_for('predict') }}"  method="POST">
+
+            <div class="row">
+
+                {% if prediction %}
+                <div style="display: flex;justify-content: center ;">
+                    <div class="card bg-dark" style="
                
           border: 3px solid green;">
-                    {% set image_map = {
-                    "Rice": "Rice.jpeg",
-                    "Muskmelon": "Muskmelon.jpg",
-                    "Apple": "Apple.jpg",
-                    "Coconut": "Coconut.jpg",
-                    "Cotton": "Cotton.jpg",
-                    "Grapes": "Grapes.jpg",
-                    "Jute": "Jute.jpg",
-                    "Maize": "Maize.jpeg",
-                    "Mango": "Mango.jpg",
-                    "Papaya": "Papaya.jpg",
-                    "Watermelon": "Watermelon.jpg",
-                    "Orange": "Orange.jpg",
-                    "Banana": "Banana.jpg",
-                    "Pomegranate": "Pomegranate.jpg",
-                    "Lentil": "Lentil.jpg",
-                    "Blackgram": "Blackgram.jpg",
-                    "Mungbean": "Mungbean.jpg",
-                    "Mothbeans": "Mothbeans.jpg",
-                    "Pigeonpeas": "Pigeonpeas.jpg",
-                    "Kidneybeans": "Kidneybeans.jpg",
-                    "Chickpea": "Chickpea.jpg",
-                    "Coffee": "Coffee.jpg",
+                        {% set image_map = {
+                        "Rice": "Rice.jpeg",
+                        "Muskmelon": "Muskmelon.jpg",
+                        "Apple": "Apple.jpg",
+                        "Coconut": "Coconut.jpg",
+                        "Cotton": "Cotton.jpg",
+                        "Grapes": "Grapes.jpg",
+                        "Jute": "Jute.jpg",
+                        "Maize": "Maize.jpeg",
+                        "Mango": "Mango.jpg",
+                        "Papaya": "Papaya.jpg",
+                        "Watermelon": "Watermelon.jpg",
+                        "Orange": "Orange.jpg",
+                        "Banana": "Banana.jpg",
+                        "Pomegranate": "Pomegranate.jpg",
+                        "Lentil": "Lentil.jpg",
+                        "Blackgram": "Blackgram.jpg",
+                        "Mungbean": "Mungbean.jpg",
+                        "Mothbeans": "Mothbeans.jpg",
+                        "Pigeonpeas": "Pigeonpeas.jpg",
+                        "Kidneybeans": "Kidneybeans.jpg",
+                        "Chickpea": "Chickpea.jpg",
+                        "Coffee": "Coffee.jpg",
 
 
-                    } %}
-                    {% set image_filename = image_map.get(prediction, "Apple.jpg") %}
+                        } %}
+                        {% set image_filename = image_map.get(prediction, "Apple.jpg") %}
 
-                    {% set info_map = {
-                    "Rice": "Rice requires high temperature above 25 degree celsius and high humidity with annual
-                    rainfall above
-                    100 cm to grow. Rice is grown in places where these conditions are present.
-                    ",
-                    "Muskmelon": "Soil:The soil at the planting site should be loose and loamy, but sand is an important
-                    component to increase friability.
-                    Temperature:A long, hot season with temperatures in the 80 to 85°F range is a must. Look for the
-                    sunniest,
-                    warmest zone of your garden and plant them there.
-                    Spacing:Space plants 18 inches apart in rows five to six feet apart. It’s best to avoid overcrowding
-                    as this
-                    may lead to issues with fungal disease as well as poor production and melons that are bland in
-                    flavor.
-                    Trellising:You’ll need a sturdy structure, such as one made of wood or metal. An A-frame trellis
-                    works well
-                    for this purpose.
-                    Watering:As I mentioned, adequate moisture is extremely important for muskmelons, especially during
-                    early
-                    growth and blooming.
-                    ",
-                    "Apple": "Full sun, which means six or more hours of direct summer sunlight daily.
-                    Well-drained soil, but with some moisture retention. Loamy soil is ideal, but sandy or clay soil can
-                    also
-                    work.
-                    Neutral soil pH of 6.0 to 7.0.
-                    Good air circulation to prevent fungal diseases.
-                    Temperate climate, not too hot or cold. Apples grow in Zones 3 to 9, but not well close to the
-                    ocean.
-                    ",
-                    "Coconut": "Mean daily temperature above 12–13 °C (54–55 °F) every day of the year
-                    Mean annual rainfall above 1,000 mm (39 in)
-                    No or very little overhead canopy, since even small trees require direct sun
-                    Well-drained soil
-                    Consistent temperatures above 72ºF and lots of sunshine
-                    Average temperatures of around 26-27°C
-                    Humidity > 60 per cent
-                    Elevation of up to 600 m above MSL, or up to about 1300 m near the equator and in areas where other
-                    conditions are favourable for coconut development.
-                    ",
-                    "Cotton": "A long frost-free period, a lot of heat and plenty of sunshine
-                    Warm or hot temperatures above 20°C, preferably between 21-37°C
-                    A relatively flat or undulating landscape for mechanized farming
-                    A light well-drained soil capable of retaining moisture, preferably black loamy soil
-                    A pH between 5.5-8.5 and a generous amount of compost
-                    A clear sky during the flowering stage and an alternating wet and dry season for growing and
-                    harvesting
-                    Irrigation if natural rainfall is insufficient
-                    ",
-                    "Grapes": "Temperature and its variables
-                    The amount of sunlight available to the vine
-                    Rainfall and its seasonal distribution
-                    The soil in which the vine grows
-                    ",
-                    "Jute": "A warm and wet climate, which is offered by the monsoon climate during the fall season,
-                    immediately
-                    followed by summer.
-                    Temperatures ranging to more than 25 °C and relative humidity of 70%–90%.
-                    An even distribution of 2,500 mm of rainfall across the crop’s vegetative development phase and no
-                    clouds.
-                    Mean annual rainfall of more than 1,000 mm.
-                    No continuous rain or water logging.
-                    ",
-                    "Maize": "Temperature of 26°C – 30°C
-                    Rainfall of between 75cm – 150cm per annum
-                    Well-drained sandy loamy soil of pH6-7
-                    Adequate water and quality soil
-                    Six to eight hours of sunlight per day
-                    Soil should be well-draining and fertile, with a pH between 6 and 7
-                    Good drainage to prevent waterlogging, which can lead to root rot and other problems
-                    Frost-free weather
-                    ",
-                    "Mango": "A warm environment with a temperature ideally above 21°C (70°F) and a minimum temperature
-                    of 4°C
-                    (40°F).
-                    No frost or temperatures below 30 °F (−1 °C).
-                    A tropical or subtropical climate with hot, humid summers and mild, dry winters.
-                    A very free-draining compost such as cactus compost.
-                    At least 8 hours of sunlight per day.
-                    12 inches (30.5 cm) of rainfall (or less) per year.
-                    Enough space for the tree to grow, or a dwarf mango variety.
-                    ",
-                    "Papaya": "Full sun
-                    Well-drained soil
-                    Protection from wind and cold weather
-                    Bright light
-                    Humidity
-                    Heat
-                    Plenty of fertilizer and water
-                    Dry climate at the time of ripening adds to the sweetness of fruits
-                    ",
-                    "Watermelon": "A sunny spot with at least six hours of sun a day, but some shade from the midday sun
-                    in very
-                    hot conditions.
-                    A warm, frost-free climate, with temperatures between 65°F and 95°F.
-                    A loamy, somewhat-sandy, well-drained soil, with a pH of 5.8-7.5.
-                    A rich soil amended with organic matter, but not too much nitrogen-rich fertilisers.
-                    A lot of space to spread and grow, up to 20 square feet per plant.
-                    Plenty of moisture, but not waterlogged.
-                    ",
-                    "Orange": "Warm, sunny, sheltered position outdoors in summer.
-                    Well-lit position indoors for autumn, winter and spring.
-                    8-12 hours of bright sunlight per day, but should be shaded from excessive hot sun during the
-                    summer.
-                    Well-draining soil and an adequately draining container.
-                    Frequent watering, adjusted to the individual tree and growing conditions.
-                    An ideal daytime temperature of 68° F (20° C).
-                    Cooler nighttime temperatures.
-                    ",
-                    "Banana": "Warm, humid, and tropical climate, usually in USDA zones 9 to 11
-                    Temperature range between 20°C and 30°C, with an average of 25°C to 28°C
-                    High humidity levels of about 50 percent
-                    Daylight around twelve hours each day
-                    Deep, loose, well-drained, and slightly acidic soil with plenty of organic matter
-                    Full sunlight, except for some variegated varieties that need partial shade
-                    ",
-                    "Pomegranate": "Full sun, at least 6 hours a day
-                    Well-drained soil, tolerant of poor soil
-                    Water well after planting, then water regularly but not excessively
-                    Warm, arid areas, cold winter may increase fruit set
-                    Fertilizer once a year in spring
-                    ",
-                    "Lentil": "A cool season, with temperatures between 18 to 30 degrees Celsius.
-                    Full sun.
-                    Loose, well-drained soil rich in organic matter.
-                    A soil pH between 6.0 and 6.5.
-                    Moderate moisture during their growing season3.
-                    Cold temperatures during vegetative growth and warm temperatures when it matures.
-                    Areas with cool weather and limited rainfall.
-                    Ideal temperatures around 65 to 85 degrees Fahrenheit.
-                    Humidity on the lower side, around 30 to 40 percent
-                    ",
-                    "Blackgram": "Climate- The most preferred climatic condition for growing Black Gram is 27-30 ° C
-                    with heavy
-                    rainfall. ...
-                    Soil- Black Gram or Urad prefers loamy soil which has high water preservation capability and a pH
-                    balance of
-                    5.5-7.5. ...
-                    Land- The land is ploughed once or twice in the Kharif season to obtain the purest form of crop.
-                    ",
-                    "Mungbean": "Fertile, sandy, loam soil with excellent drainage
-                    Soil pH of 6.2 to 7.2
-                    Removal of weeds, large rocks, and clods from soil
-                    Soil amendment with a couple of inches of compost worked in
-                    Planting the seed when the soil has warmed to 65 degrees F. (18 C.)
-                    Full sunlight
-                    Consistently warm temperatures above 60 degrees Fahrenheit
-                    ",
-                    "Mothbeans": "Select a location with very moist soil, bogs, and shallow water. Peaty soil. Cool
-                    area.
-                    Prepare the soil.
-                    Ensure the climate requirements for growing moth bean are met.
-                    Choose variety and purchase seeds.
-                    Determine the number of seeds per hectare.
-                    Plant the seeds.
-                    Regularly water the plants to maintain heavy moisture.
-                    Deadhead the plants.
-                    Once established, do not disturb unless they become overcrowded.
-                    Propagate by dividing in the spring; each division should contain one growing tip.
-                    ",
-                    "Pigeonpeas": "Full sun exposure, at least 6-8 hours of light a day
-                    Well-drained soil with a pH between 5.0 and 8.0
-                    Drought tolerant once established, but needs regular watering during germination and flowering
-                    No special fertilizer required, but can benefit from organic matter
-                    Pruning optional, but can improve yield and shape
-                    Plant seeds 1 inch deep and 12 inches apart, germination in 10 to 15 days, pods in four months
-                    ",
-                    "Kidneybeans": "Location The kidney bean plant loves to reside in the full sun; around 6-8 hours of
-                    direct
-                    sunlight is optimum. ...
-                    Soil Well draining and loose soil is ideal for planting the kidney bean seeds. ...
-                    Watering Soggy or waterlogged soil is the death of the kidney plant as it can cause root rot.
-                    ",
-                    "Chickpea": "Plant chickpeas in full sun. Chickpeas will grow in partial shade but the yield will be
-                    reduced.
-                    Grow chickpeas in loose, well-drained soil rich in organic matter. ...
-                    Avoid planting chickpeas where green manures have just grown or in soil high in nitrogen; this will
-                    result
-                    in green leafy growth, not seed production.
-                    Add potassium and phosphorus to the soil.
-                    ",
-                    "Coffee": "A cool to warm tropical climate with no frost and ample sunshine
-                    High humidity (over 50%) and plenty of water with good drainage
-                    Rich, slightly acidic soil
-                    Some shade, especially for young plants
-                    A suitable topography, such as a mid-elevation mountainside
-                    Economic conditions that allow for profitable cultivation
-                    ",
+                        {% set info_map = {
+                        "Rice": "Rice requires high temperature above 25 degree celsius and high humidity with annual
+                        rainfall above
+                        100 cm to grow. Rice is grown in places where these conditions are present.
+                        ",
+                        "Muskmelon": "Soil:The soil at the planting site should be loose and loamy, but sand is an
+                        important
+                        component to increase friability.
+                        Temperature:A long, hot season with temperatures in the 80 to 85°F range is a must. Look for the
+                        sunniest,
+                        warmest zone of your garden and plant them there.
+                        Spacing:Space plants 18 inches apart in rows five to six feet apart. It’s best to avoid
+                        overcrowding
+                        as this
+                        may lead to issues with fungal disease as well as poor production and melons that are bland in
+                        flavor.
+                        Trellising:You’ll need a sturdy structure, such as one made of wood or metal. An A-frame trellis
+                        works well
+                        for this purpose.
+                        Watering:As I mentioned, adequate moisture is extremely important for muskmelons, especially
+                        during
+                        early
+                        growth and blooming.
+                        ",
+                        "Apple": "Full sun, which means six or more hours of direct summer sunlight daily.
+                        Well-drained soil, but with some moisture retention. Loamy soil is ideal, but sandy or clay soil
+                        can
+                        also
+                        work.
+                        Neutral soil pH of 6.0 to 7.0.
+                        Good air circulation to prevent fungal diseases.
+                        Temperate climate, not too hot or cold. Apples grow in Zones 3 to 9, but not well close to the
+                        ocean.
+                        ",
+                        "Coconut": "Mean daily temperature above 12–13 °C (54–55 °F) every day of the year
+                        Mean annual rainfall above 1,000 mm (39 in)
+                        No or very little overhead canopy, since even small trees require direct sun
+                        Well-drained soil
+                        Consistent temperatures above 72ºF and lots of sunshine
+                        Average temperatures of around 26-27°C
+                        Humidity > 60 per cent
+                        Elevation of up to 600 m above MSL, or up to about 1300 m near the equator and in areas where
+                        other
+                        conditions are favourable for coconut development.
+                        ",
+                        "Cotton": "A long frost-free period, a lot of heat and plenty of sunshine
+                        Warm or hot temperatures above 20°C, preferably between 21-37°C
+                        A relatively flat or undulating landscape for mechanized farming
+                        A light well-drained soil capable of retaining moisture, preferably black loamy soil
+                        A pH between 5.5-8.5 and a generous amount of compost
+                        A clear sky during the flowering stage and an alternating wet and dry season for growing and
+                        harvesting
+                        Irrigation if natural rainfall is insufficient
+                        ",
+                        "Grapes": "Temperature and its variables
+                        The amount of sunlight available to the vine
+                        Rainfall and its seasonal distribution
+                        The soil in which the vine grows
+                        ",
+                        "Jute": "A warm and wet climate, which is offered by the monsoon climate during the fall season,
+                        immediately
+                        followed by summer.
+                        Temperatures ranging to more than 25 °C and relative humidity of 70%–90%.
+                        An even distribution of 2,500 mm of rainfall across the crop’s vegetative development phase and
+                        no
+                        clouds.
+                        Mean annual rainfall of more than 1,000 mm.
+                        No continuous rain or water logging.
+                        ",
+                        "Maize": "Temperature of 26°C – 30°C
+                        Rainfall of between 75cm – 150cm per annum
+                        Well-drained sandy loamy soil of pH6-7
+                        Adequate water and quality soil
+                        Six to eight hours of sunlight per day
+                        Soil should be well-draining and fertile, with a pH between 6 and 7
+                        Good drainage to prevent waterlogging, which can lead to root rot and other problems
+                        Frost-free weather
+                        ",
+                        "Mango": "A warm environment with a temperature ideally above 21°C (70°F) and a minimum
+                        temperature
+                        of 4°C
+                        (40°F).
+                        No frost or temperatures below 30 °F (−1 °C).
+                        A tropical or subtropical climate with hot, humid summers and mild, dry winters.
+                        A very free-draining compost such as cactus compost.
+                        At least 8 hours of sunlight per day.
+                        12 inches (30.5 cm) of rainfall (or less) per year.
+                        Enough space for the tree to grow, or a dwarf mango variety.
+                        ",
+                        "Papaya": "Full sun
+                        Well-drained soil
+                        Protection from wind and cold weather
+                        Bright light
+                        Humidity
+                        Heat
+                        Plenty of fertilizer and water
+                        Dry climate at the time of ripening adds to the sweetness of fruits
+                        ",
+                        "Watermelon": "A sunny spot with at least six hours of sun a day, but some shade from the midday
+                        sun
+                        in very
+                        hot conditions.
+                        A warm, frost-free climate, with temperatures between 65°F and 95°F.
+                        A loamy, somewhat-sandy, well-drained soil, with a pH of 5.8-7.5.
+                        A rich soil amended with organic matter, but not too much nitrogen-rich fertilisers.
+                        A lot of space to spread and grow, up to 20 square feet per plant.
+                        Plenty of moisture, but not waterlogged.
+                        ",
+                        "Orange": "Warm, sunny, sheltered position outdoors in summer.
+                        Well-lit position indoors for autumn, winter and spring.
+                        8-12 hours of bright sunlight per day, but should be shaded from excessive hot sun during the
+                        summer.
+                        Well-draining soil and an adequately draining container.
+                        Frequent watering, adjusted to the individual tree and growing conditions.
+                        An ideal daytime temperature of 68° F (20° C).
+                        Cooler nighttime temperatures.
+                        ",
+                        "Banana": "Warm, humid, and tropical climate, usually in USDA zones 9 to 11
+                        Temperature range between 20°C and 30°C, with an average of 25°C to 28°C
+                        High humidity levels of about 50 percent
+                        Daylight around twelve hours each day
+                        Deep, loose, well-drained, and slightly acidic soil with plenty of organic matter
+                        Full sunlight, except for some variegated varieties that need partial shade
+                        ",
+                        "Pomegranate": "Full sun, at least 6 hours a day
+                        Well-drained soil, tolerant of poor soil
+                        Water well after planting, then water regularly but not excessively
+                        Warm, arid areas, cold winter may increase fruit set
+                        Fertilizer once a year in spring
+                        ",
+                        "Lentil": "A cool season, with temperatures between 18 to 30 degrees Celsius.
+                        Full sun.
+                        Loose, well-drained soil rich in organic matter.
+                        A soil pH between 6.0 and 6.5.
+                        Moderate moisture during their growing season3.
+                        Cold temperatures during vegetative growth and warm temperatures when it matures.
+                        Areas with cool weather and limited rainfall.
+                        Ideal temperatures around 65 to 85 degrees Fahrenheit.
+                        Humidity on the lower side, around 30 to 40 percent
+                        ",
+                        "Blackgram": "Climate- The most preferred climatic condition for growing Black Gram is 27-30 ° C
+                        with heavy
+                        rainfall. ...
+                        Soil- Black Gram or Urad prefers loamy soil which has high water preservation capability and a
+                        pH
+                        balance of
+                        5.5-7.5. ...
+                        Land- The land is ploughed once or twice in the Kharif season to obtain the purest form of crop.
+                        ",
+                        "Mungbean": "Fertile, sandy, loam soil with excellent drainage
+                        Soil pH of 6.2 to 7.2
+                        Removal of weeds, large rocks, and clods from soil
+                        Soil amendment with a couple of inches of compost worked in
+                        Planting the seed when the soil has warmed to 65 degrees F. (18 C.)
+                        Full sunlight
+                        Consistently warm temperatures above 60 degrees Fahrenheit
+                        ",
+                        "Mothbeans": "Select a location with very moist soil, bogs, and shallow water. Peaty soil. Cool
+                        area.
+                        Prepare the soil.
+                        Ensure the climate requirements for growing moth bean are met.
+                        Choose variety and purchase seeds.
+                        Determine the number of seeds per hectare.
+                        Plant the seeds.
+                        Regularly water the plants to maintain heavy moisture.
+                        Deadhead the plants.
+                        Once established, do not disturb unless they become overcrowded.
+                        Propagate by dividing in the spring; each division should contain one growing tip.
+                        ",
+                        "Pigeonpeas": "Full sun exposure, at least 6-8 hours of light a day
+                        Well-drained soil with a pH between 5.0 and 8.0
+                        Drought tolerant once established, but needs regular watering during germination and flowering
+                        No special fertilizer required, but can benefit from organic matter
+                        Pruning optional, but can improve yield and shape
+                        Plant seeds 1 inch deep and 12 inches apart, germination in 10 to 15 days, pods in four months
+                        ",
+                        "Kidneybeans": "Location The kidney bean plant loves to reside in the full sun; around 6-8 hours
+                        of
+                        direct
+                        sunlight is optimum. ...
+                        Soil Well draining and loose soil is ideal for planting the kidney bean seeds. ...
+                        Watering Soggy or waterlogged soil is the death of the kidney plant as it can cause root rot.
+                        ",
+                        "Chickpea": "Plant chickpeas in full sun. Chickpeas will grow in partial shade but the yield
+                        will be
+                        reduced.
+                        Grow chickpeas in loose, well-drained soil rich in organic matter. ...
+                        Avoid planting chickpeas where green manures have just grown or in soil high in nitrogen; this
+                        will
+                        result
+                        in green leafy growth, not seed production.
+                        Add potassium and phosphorus to the soil.
+                        ",
+                        "Coffee": "A cool to warm tropical climate with no frost and ample sunshine
+                        High humidity (over 50%) and plenty of water with good drainage
+                        Rich, slightly acidic soil
+                        Some shade, especially for young plants
+                        A suitable topography, such as a mid-elevation mountainside
+                        Economic conditions that allow for profitable cultivation
+                        ",
 
 
-                    } %}
-                    {% set content = info_map.get(prediction, "404 NOT FOUND") %}
+                        } %}
+                        {% set content = info_map.get(prediction, "404 NOT FOUND") %}
 
 
-                    <img alt="{{ prediction }}" class="card-img-top"
-                        src="{{url_for('static', filename=image_filename)}}">
-                    <div class="card-body">
-                        <div class="products-preview">
-                            <h5 class="card-title">Recommend Crop</h5>
-                            <p class="card-text" style="display: flex; justify-content: center; align-items: center; font-weight: bold;font-size: large;">{{prediction }}</p>
+                        <img alt="{{ prediction }}" class="card-img-top"
+                            src="{{url_for('static', filename=image_filename)}}">
+                        <div class="card-body">
+                            <div class="products-preview">
+                                <h5 class="card-title">Recommend Crop</h5>
+                                <p class="card-text"
+                                    style="display: flex; justify-content: center; align-items: center; font-weight: bold;font-size: large;">
+                                    {{prediction }}</p>
+
+                            </div>
 
                         </div>
 
                     </div>
 
+
+
+                </div>
+                <div class="card bg-dark">
+                    <div class="card-body-content">
+                        <p class="card-text">{{content}}</p>
+                    </div>
+
                 </div>
 
+                {% endif %}
 
 
-            </div>
-            <div class="card bg-dark" >
-                <div class="card-body-content">
-                    <p class="card-text">{{content}}</p>
+
+                <div class="fert">
+                    <button class="btn btn-primary btn-lg" type="button" style="background-color: black;"
+                        onclick="redirectToFertilizerRecommendation()">Fertilizer</button>
                 </div>
-
             </div>
-
-            {% endif %}
-
-
-
-            <div class="fert">
-                <button class="btn btn-primary btn-lg" type="button" style="background-color: black;"
-                    onclick="redirectToFertilizerRecommendation()">Fertilizer</button>
-            </div>
-        </div>
-    </form>
+        </form>
 
 
 
-
+    </div>
 
 
 

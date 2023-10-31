@@ -2,26 +2,17 @@
 
 <head>
   <title>Major Project</title>
-  <link
-    rel="icon"
-    type="image/x-icon"
-    href="https://th.bing.com/th/id/OIP.StKIboJQap5_xtmIFlWLlAHaEo?pid=ImgDet&rs=1"
-  />
+  <link rel="icon" type="image/x-icon"
+    href="https://th.bing.com/th/id/OIP.StKIboJQap5_xtmIFlWLlAHaEo?pid=ImgDet&rs=1" />
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <link
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- font awesome cdn link  -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
   <!-- custom css file link  -->
   <link rel="stylesheet" href="css/style.css" />
@@ -32,7 +23,8 @@
   <style>
     h1 {
       color: black;
-      text-align: center; /* Center the heading text */
+      text-align: center;
+      /* Center the heading text */
       font-size: 1.4rem;
     }
 
@@ -43,7 +35,8 @@
     }
 
     .card {
-      margin: 20px auto; /* Center the card horizontally */
+      margin: 20px auto;
+      /* Center the card horizontally */
       color: white;
     }
 
@@ -54,7 +47,8 @@
     }
 
     form {
-      max-width: 100%; /* Ensure the form doesn't overflow its container */
+      max-width: 100%;
+      /* Ensure the form doesn't overflow its container */
       background-color: rgba(255, 255, 255, 0.7);
       border-radius: 10px;
       backdrop-filter: blur(10px);
@@ -73,7 +67,8 @@
     }
 
     .form-group {
-      padding: 10px; /* Add some spacing around form elements */
+      padding: 10px;
+      /* Add some spacing around form elements */
     }
 
     label {
@@ -85,7 +80,8 @@
     .heading {
       background-color: #9e8c8c;
       color: black;
-      text-align: center; /* Center the heading text */
+      text-align: center;
+      /* Center the heading text */
       border-radius: 5px;
       padding: 10px;
       display: flex;
@@ -93,12 +89,17 @@
       justify-content: center;
       width: 30%;
     }
+    .cnt {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   </style>
 </head>
 
-<div>
+<div class="cnt">
   <div class="heading" style="background-color: #9e8c8c; color: black">
-    <h1 style="color: black; justify-content: center; align-items: center">
+    <h1 style="color: black; justify-content: center; align-items: center;font-size: 2.0rem;">
       Fertilizer Recommendation
     </h1>
   </div>
@@ -110,106 +111,75 @@
   </script>
 </div>
 
-<form method="POST" action="{{ url_for('fert_recommend') }}" class="mt-5">
-  <div class="form-group">
-    <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
-    <input
-      type="number"
-      class="form-control"
-      id="Nitrogen"
-      name="nitrogen"
-      style="font-weight: bold"
-      placeholder="Enter Nitrogen Value"
-      required
-    />
-  </div>
-  <div class="form-group">
-    <label for="Phosphorous" style="font-size: 17px"><b>Phosphorous</b></label>
-    <input
-      type="number"
-      class="form-control"
-      id="Phosphorous"
-      name="phosphorous"
-      style="font-weight: bold"
-      placeholder="Enter Phosphorous Value"
-      required
-    />
-  </div>
 
-  <div class="form-group">
-    <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
-    <input
-      type="number"
-      class="form-control"
-      id="Pottasium"
-      name="pottasium"
-      style="font-weight: bold"
-      placeholder="Enter Pottasium Value"
-      required
-    />
-  </div>
-  <div class="form-group">
-    <label for="crop" style="font-size: 17px"
-      ><b>Crop you want to grow</b></label
-    >
-    <select
-      name="cropname"
-      class="form-control"
-      id="crop"
-      style="font-weight: bold"
-      required
-    >
-      <option selected>Select crop</option>
-      <option>rice</option>
-      <option>maize</option>
-      <option>chickpea</option>
-      <option>kidneybeans</option>
-      <option>pigeonpeas</option>
-      <option>mothbeans</option>
-      <option>mungbean</option>
-      <option>blackgram</option>
-      <option>lentil</option>
-      <option>pomegranate</option>
-      <option>banana</option>
-      <option>mango</option>
-      <option>grapes</option>
-      <option>watermelon</option>
-      <option>muskmelon</option>
-      <option>apple</option>
-      <option>orange</option>
-      <option>papaya</option>
-      <option>coconut</option>
-      <option>cotton</option>
-      <option>jute</option>
-      <option>coffee</option>
-    </select>
-  </div>
+<div class="cnt">
 
-  <div class="d-flex justify-content-center">
-    <div class="col-md-12 text-center">
-      <button
-        class="btn btn-primary btn-lg"
-        type="submit"
-        style="background-color: black"
-      >
-        Predict
-      </button>
+ 
+
+  <form method="POST" action="{{ url_for('fert_recommend') }}" class="mt-5">
+    <div class="form-group">
+      <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
+      <input type="number" class="form-control" id="Nitrogen" name="nitrogen" style="font-weight: bold"
+        placeholder="Enter Nitrogen Value" required />
     </div>
-  </div>
-
-  <br />
-  <br />
-  <div class="d-flex justify-content-center">
-    <div class="col-md-12 text-center">
-      <button
-        class="btn btn-primary btn-lg"
-        type="submit"
-        style="background-color: black"
-        onclick="redirectTohome()"
-      >
-        Crop Recommendation
-      </button>
+    <div class="form-group">
+      <label for="Phosphorous" style="font-size: 17px"><b>Phosphorous</b></label>
+      <input type="number" class="form-control" id="Phosphorous" name="phosphorous" style="font-weight: bold"
+        placeholder="Enter Phosphorous Value" required />
     </div>
-  </div>
-</form>
+
+    <div class="form-group">
+      <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
+      <input type="number" class="form-control" id="Pottasium" name="pottasium" style="font-weight: bold"
+        placeholder="Enter Pottasium Value" required />
+    </div>
+    <div class="form-group">
+      <label for="crop" style="font-size: 17px"><b>Crop you want to grow</b></label>
+      <select name="cropname" class="form-control" id="crop" style="font-weight: bold" required>
+        <option selected>Select crop</option>
+        <option>rice</option>
+        <option>maize</option>
+        <option>chickpea</option>
+        <option>kidneybeans</option>
+        <option>pigeonpeas</option>
+        <option>mothbeans</option>
+        <option>mungbean</option>
+        <option>blackgram</option>
+        <option>lentil</option>
+        <option>pomegranate</option>
+        <option>banana</option>
+        <option>mango</option>
+        <option>grapes</option>
+        <option>watermelon</option>
+        <option>muskmelon</option>
+        <option>apple</option>
+        <option>orange</option>
+        <option>papaya</option>
+        <option>coconut</option>
+        <option>cotton</option>
+        <option>jute</option>
+        <option>coffee</option>
+      </select>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <div class="col-md-12 text-center">
+        <button class="btn btn-primary btn-lg" type="submit" style="background-color: black">
+          Predict
+        </button>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <div class="d-flex justify-content-center">
+      <div class="col-md-12 text-center">
+        <button class="btn btn-primary btn-lg" type="submit" style="background-color: black" onclick="redirectTohome()">
+          Crop Recommendation
+        </button>
+      </div>
+    </div>
+  </form>
+
+</div>
 {% endblock %}
