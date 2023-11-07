@@ -7,9 +7,9 @@
 | Name  | Github-ID |
 | ------------- | ------------- |
 | Akshay Keswani  | [@its-akshay](https://www.github.com/its-akshay)  |
-| Akshat Singh gour  | [@akshat123007](https://github.com/akshat123007)  |
+| Akshat Singh Gour  | [@akshat123007](https://github.com/akshat123007)  |
 | Akshat Singh Rathore  | [@AkshatSR2003](https://github.com/AkshatSR2003)  |
-| Aayush gupta  | [@AayushGuptaP1](https://github.com/AayushGuptaP1)  |
+| Aayush Gupta  | [@AayushGuptaP1](https://github.com/AayushGuptaP1)  |
 
 
 # Project Coordinator:
