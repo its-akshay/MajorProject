@@ -34,7 +34,7 @@ Synopsis: [Link](https://docs.google.com/document/d/17g8hYTehLC2yCQF0jGgs8T8eBAl
 
 PPT: [Link](https://drive.google.com/file/d/11XW76bleYvU6EUuLBDcWkFdhT_doXqua/view?usp=sharing)
 
-Report: [Link](https://drive.google.com/file/d/1bPxKHW3QOPN-GClhc1LvL3JpCRdVKTD_/view?usp=sharing)
+Report: [Link](https://drive.google.com/file/d/19d7xwPH6pAgxbXhOEcz59R6lvBxUuTkz/view?usp=sharing)
 
 Published Paper: [Link](https://ijsrem.com/download/crop-recommendation-system-2/)
 DOI: 10.55041/IJSREM26385
