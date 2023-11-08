@@ -14,6 +14,7 @@
 
 # Project Coordinator:
 #### - **Prof.Bharti Bhattad**
+#### - **Prof.Ritika Bhatt**
 
 ## Tech Stack
 
