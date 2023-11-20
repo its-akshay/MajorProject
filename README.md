@@ -40,7 +40,7 @@ Report: [Link](https://drive.google.com/file/d/19d7xwPH6pAgxbXhOEcz59R6lvBxUuTkz
 Published Paper: [Link](https://ijsrem.com/download/crop-recommendation-system-2/)
 DOI: 10.55041/IJSREM26385
 
-Video Link: [YouTube](https://youtu.be/jrtc1kDfmSg)
+Video Link: [YouTube](https://youtu.be/L-HTa6lLKrE)
 
 Deployed Link: [Link](https://farmeasy-1gav.onrender.com/)
 
