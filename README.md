@@ -33,7 +33,7 @@ Technical Poster
 
 Synopsis: [Link](https://docs.google.com/document/d/17g8hYTehLC2yCQF0jGgs8T8eBAlk48dCYvA9PZKhjfo/edit?usp=sharing)
 
-PPT: [Link](https://drive.google.com/file/d/11XW76bleYvU6EUuLBDcWkFdhT_doXqua/view?usp=sharing)
+PPT: [Link](https://docs.google.com/presentation/d/1pU7r7vuunXBUWNMaTY9FL8qNqhVPC1KO/edit#slide=id.p1)
 
 Report: [Link](https://drive.google.com/file/d/19d7xwPH6pAgxbXhOEcz59R6lvBxUuTkz/view?usp=sharing)
 
