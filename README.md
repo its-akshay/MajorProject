@@ -44,6 +44,8 @@ Video Link: [YouTube](https://youtu.be/L-HTa6lLKrE)
 
 Deployed Link: [Link](https://farmeasy-1gav.onrender.com/)
 
+UML: [Link](https://github.com/its-akshay/MajorProject/files/13469941/MajorDiagrams.pdf)
+
 
 ## Images
 
