@@ -24,6 +24,7 @@
 
 **Deployment:** Render
 
+**Frontend:** HTML,CSS,Javascript
 
 ## 🔗 Links
 
