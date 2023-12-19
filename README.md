@@ -30,7 +30,8 @@
 
 
 Technical Poster
-[Link](https://drive.google.com/file/d/1MyPM8ytml_wTsUknq1_BzMiKAb4E3aLn/view?usp=sharing)
+[Link](https://github.com/its-akshay/MajorProject/files/13718240/PosterPresentations.com-Virtual.16.9-Ratio.-Template-Aragon.1.pdf)
+
 
 Synopsis: [Link](https://docs.google.com/document/d/17g8hYTehLC2yCQF0jGgs8T8eBAlk48dCYvA9PZKhjfo/edit?usp=sharing)
 
